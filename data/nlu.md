@@ -62,3 +62,14 @@
 - i need some information
 - enterproj services
 - enterproj
+
+##intent:subscribe_unix_monitor
+- i want to subscribe to unix machine monitoring notfication
+- Notifcation subscription
+
+##intent:yes
+-yes i would like to recieve notifications
+
+##intent:no
+-no i dont want to recieve notifications
+

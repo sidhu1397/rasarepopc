@@ -42,3 +42,15 @@
 * mood_unhappy
   - utter_cheer_up
   - utter_did_that_help
+
+##unix monitor subscription
+* subscribe_unix_monitor
+  - action_subscribe_unix_monitor
+
+##notification_yes
+* yes
+  - action_yes
+
+##notification_no
+* no
+  - action_no

@@ -8,6 +8,10 @@ intents:
   - bot_challenge
   - introduction
   - enterproj
+  - subscribe_unix_monitor
+  - yes
+  - no
+
 
 actions:
 - utter_greet
@@ -18,6 +22,10 @@ actions:
 - utter_iamabot
 - utter_bot
 - action_enterproj
+- action_subscribe_unix_monitor
+- action_yes
+- action_no
+
 
 templates:
   utter_greet:
@@ -41,3 +49,6 @@ templates:
 
   utter_bot:
   - text: "I am Hanon bot"
+
+  action_no:
+  - text: "Okay as you wish"

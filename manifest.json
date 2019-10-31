@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.5",
+  "version": "1.0.0",
+  "id": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
+  "packageName": "hanonbot.test.com",
+    "developer": {
+      "name": "TCS",
+      "websiteUrl": "https://website.com/",
+      "privacyUrl": "https://website.com/privacy",
+      "termsOfUseUrl": "https://website.com/app-tos"
+    },
+  "name": {
+    "short": "HanonBot_test",
+    "full": "Hanon FAQ,Monitoring bot"
+  },
+  "description": {
+    "short": "This is an FAQ bot",
+    "full": "This is an FAQ bot,unix monitoring bot,db refreshbot"
+  },
+  "icons": {
+    "outline": "nconfinder_Hexagon_131735.png",
+    "color": "nandroid192.png"
+  },
+  "accentColor": "#4464ee",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://contoso.com/teamstab/configure",
+      "canUpdateConfiguration": true,
+      "scopes": [ "team", "groupchat" ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "idForPage",
+      "name": "Display name of tab",
+      "contentUrl": "https://contoso.com/content?host=msteams",
+      "websiteUrl": "https://contoso.com/content",
+      "scopes": [ "personal" ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
+      "needsChannelSelector": false,
+      "isNotificationOnly": false,
+      "scopes": [ "team", "personal", "groupchat" ],
+      "supportsFiles": true,
+      "commandLists": [
+        {
+          "scopes": [ "team", "groupchat" ],
+          "commands": [
+            {
+              "title": "Command 1",
+              "description": "hi"
+            },
+            {
+              "title": "Command 2",
+              "description": "enterproj"
+            }
+          ]
+        },
+        {
+          "scopes": [ "personal", "groupchat" ],
+          "commands": [
+            {
+              "title": "how to add team member",
+              "description": "this is an enterproj command"
+            },
+            {
+              "title": "how to assign ownership",
+              "description": "this is an enterproj command"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "connectors": [
+    {
+      "connectorId": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
+      "configurationUrl": "https://contoso.com/teamsconnector/configure",
+      "scopes": [ "team"]
+    }
+  ]
+
+}
