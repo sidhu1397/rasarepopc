@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+       
+ 
+        
+     function dispgraph () {
+      
+	const socket = io("http://localhost:8080");
+
+	
+        
+       function currenttime(){
+       var d = new Date().toLocaleTimeString();
+       return d;
+        }
+     
+
+       var dps = [{x: new Date(), y: 10}, {x: new Date(), y: 13}, {x: new Date(), y: 18}, {x: new Date(), y: 20}, {x: new Date(), y: 17},{x: new Date(), y: 10}, {x: new Date(), y: 13}, {x: new Date(), y: 18}, {x: new Date(), y: 20}, {x: new Date(), y: 17}];   //dataPoints.
+      var chart = new CanvasJS.Chart("chartContainer",{
+      	title :{
+      		text: "Live Data"
+      	},
+      	axisX: {
+            valueFormatString: "HH:mm:ss" ,
+      		title: "Time"
+      	},
+      	axisY: {						
+      		title: "CPU Usage"
+      	},
+      	data: [{
+      		type: "line",
+      		dataPoints : dps
+      	}]
+      });
+
+      chart.render();
+      xVal = new Date();
+      var yVal = 15;	
+      var updateInterval = 1000;
+      
+	socket.on("message", function(data) {
+  	console.log(data);
+        function updatechart () {
+      	
+      	
+
+        console.log("xaxis = "+xVal+"yaxis = "+data);
+      	dps.push({x: xVal,y: data});
+      	xVal = new Date();
+      	
+      	if (dps.length >  10 )
+      	{
+      		dps.shift();				
+      	}
+
+    
+
+      	chart.render();		
+
+	// update chart after specified time. 
+
+}
+
+updatechart();
+
+
+});
+
+
+setInterval(function(){socket.emit("message", "HELLO WORLD");}, updateInterval); 
+}
+
+
+</script>
+
+</head>
+<body>
+	<div id="chartContainer" style="height: 300px; width: 100%;">
+	</div>
+<button onclick="dispgraph()">graph</button>
+<button onclick="hello()">socket</button>
+<p id="a"></p>
+</body>
+</html>

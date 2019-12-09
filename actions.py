@@ -62,7 +62,7 @@ class enterprojhandler(Action):
         cursor.execute('select payload from sample where notification=\'yes\';')
         for row in cursor:
             print(row)
-            requests.post("https://4929620e.ngrok.io/webhooks/botframework/webhook", data=row)
+            requests.post("https://48527a34.ngrok.io/webhooks/botframework/webhook", data=row)
 
 
         payload = {}
@@ -136,6 +136,60 @@ class subscribeunix(Action):
             }
         ]}
         dispatcher.utter_custom_json(select_menu)
+        # vid = {
+        #     "type": "message", "attachments":
+        #         [
+        #             {
+        #     'contentType': 'application/vnd.microsoft.card.adaptive',
+        #     "content":   {
+        #         "type": "AdaptiveCard",
+        #         "body":     [
+        #                 {
+        #                 "type": "Media",
+        #                 "poster": "https://adaptivecards.io/content/poster-video.png",
+        #                 "sources":  [
+        #                         {
+        #                         "mimeType": "video/mp4",
+        #                         "url": "https://adaptivecardsblob.blob.core.windows.net/assets/AdaptiveCardsOverviewVideo.mp4"
+        #                         }   ]
+        #
+        #
+        #
+        #                     }
+        #                         ]
+        #                             }
+        #                                     }
+        #             ]
+        # }
+        # dispatcher.utter_custom_json(vid)
+        #     dict =tracker.current_state()
+        #     print(dict)
+        #     vid_button ={
+        #     "type": "message", "attachments":
+        #         [
+        #             {
+        #     'contentType': 'application/vnd.microsoft.card.adaptive',
+        #     "content":   {
+        #                       "type": "AdaptiveCard",
+        #                       "version": "1.0",
+        #                       "body": [
+        #                         {
+        #                           "type": "TextBlock",
+        #                           "text": "Hanon tutorial video"
+        #                         }
+        #                       ],
+        #                       "actions": [
+        #                         {
+        #                           "type": "Action.OpenUrl",
+        #                           "title": "Hanon FAQ Video",
+        #                           "url": "https://rasabot.s3.us-east-2.amazonaws.com/Hanon.mp4"
+        #                         }
+        #                       ]
+        #                 }
+        #             }]}
+        #
+        #     dispatcher.utter_custom_json(vid_button)
+
 
 
 class notifcationyes(Action):
@@ -159,3 +213,27 @@ class notifcationyes(Action):
         cursor.execute(query)
         cursor.commit()
         dispatcher.utter_message("You are subscribed to receive notifications regarding unix machine")
+
+
+class fileuploadhandler(Action):
+    def name(self):  # type: () -> Text
+        return "action_Filehandler"
+    def run(
+        self,
+        dispatcher,  # type: CollectingDispatcher
+        tracker,  # type: Tracker
+        domain,  # type:  Dict[Text, Any]
+    ):  # type: (...) -> List[Dict[Text, Any]]
+        tfname=tracker.sender_id
+        tfname=str(tfname)
+        tfname=tfname.replace(":","")
+        fname = "C:\\Users\Admin\\rasafilehandler\\" + tfname + ".txt"
+        Myfile =open(fname,"r")
+        contents = Myfile.read()
+        Myfile.close()
+        dispatcher.utter_message("your file url = {0}".format(contents))
+        import os
+        os.remove(fname)
+        print("file removed")
+
+

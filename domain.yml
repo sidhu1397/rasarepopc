@@ -11,6 +11,8 @@ intents:
   - subscribe_unix_monitor
   - yes
   - no
+  - Filehandler
+  - uploadfile
 
 
 actions:
@@ -25,6 +27,8 @@ actions:
 - action_subscribe_unix_monitor
 - action_yes
 - action_no
+- action_Filehandler
+- utter_uploadfile
 
 
 templates:
@@ -52,3 +56,11 @@ templates:
 
   action_no:
   - text: "Okay as you wish"
+
+  utter_uploadfile:
+  - text: "Would you like to upload files"
+    buttons:
+    - title: "Yes"
+      payload: '/subscribe_unix_monitor'
+    - title: "No"
+      payload: '/goodbye'

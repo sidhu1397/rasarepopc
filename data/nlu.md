@@ -73,3 +73,10 @@
 ##intent:no
 -no i dont want to recieve notifications
 
+##intent:Filehandler
+-Files are uploaded
+-Uploaded my file
+
+##intent:uploadfile
+-pls upload files
+

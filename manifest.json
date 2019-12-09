@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
   "manifestVersion": "1.5",
   "version": "1.0.0",
-  "id": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
-  "packageName": "hanonbot.test.com",
+  "id": "686b1955-efff-4ea5-b2f2-d16ccc75b674",
+  "packageName": "pythonbot.test.com",
     "developer": {
       "name": "TCS",
       "websiteUrl": "https://website.com/",
@@ -41,7 +41,7 @@
   ],
   "bots": [
     {
-      "botId": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
+      "botId": "686b1955-efff-4ea5-b2f2-d16ccc75b674",
       "needsChannelSelector": false,
       "isNotificationOnly": false,
       "scopes": [ "team", "personal", "groupchat" ],
@@ -78,7 +78,7 @@
   ],
   "connectors": [
     {
-      "connectorId": "c5530cc4-4781-4f7c-84ed-b9b51870a882",
+      "connectorId": "686b1955-efff-4ea5-b2f2-d16ccc75b674",
       "configurationUrl": "https://contoso.com/teamsconnector/configure",
       "scopes": [ "team"]
     }
