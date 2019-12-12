@@ -18,6 +18,19 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa.core.channels.botframework import BotFrameworkInput
 import pyodbc
 import requests
+import time
+from datetime import datetime
+
+import socketio
+
+# sio = socketio.Client()
+# sio.connect('http://localhost:8080')
+#
+# now = datetime.now()
+# current_time = now.strftime("%H:%M:%S")
+# print("Current Time =", current_time)
+# start_time = {"starttime": current_time}
+# sio.emit('message', start_time)
 
 # im going to perform a second commit
 # seperately commiting only my master branch
@@ -52,8 +65,19 @@ class enterprojhandler(Action):
             tracker,  # type: Tracker
             domain,  # type:  Dict[Text, Any]
     ):  # type: (...) -> List[Dict[Text, Any]]
+
+        # now = datetime.now()
+        # current_time = now.strftime("%H:%M:%S")
+        # print("Current Time =", current_time)
+        # start_time = {"starttime": current_time}
+        # sio.emit('message', start_time)
+
+
+
+
         dispatcher.utter_message("Enterproj services are")
-        dispatcher.utter_image_url("https://sidwebpage.s3.us-east-2.amazonaws.com/website/hanonlogo.png")
+        # dispatcher.utter_image_url("https://rasabot.s3.us-east-2.amazonaws.com/AddTeamMember2.jpg")
+        dispatcher.utter_image_url("https://raw.githubusercontent.com/muthu-chatbotautomation/Rasa-chat-bot/master/AddTeamMember2.jpg?token=ANQB43AC4VJXLK2C4XQTK3256H4ME")
         conn = pyodbc.connect(Driver='{ODBC Driver 17 for SQL Server}', Server='localhost\SQLEXPRESS',
                               Database='testing',
                               Trusted_Connection='yes')
@@ -64,6 +88,13 @@ class enterprojhandler(Action):
             print(row)
             requests.post("https://48527a34.ngrok.io/webhooks/botframework/webhook", data=row)
 
+
+
+        time.sleep(2)
+        # now = datetime.now()
+        # current_time = now.strftime("%H:%M:%S")
+        # end_time = {"endtime":current_time}
+        # sio.emit('message', end_time)
 
         payload = {}
 
@@ -112,6 +143,11 @@ class subscribeunix(Action):
             tracker,  # type: Tracker
             domain,  # type:  Dict[Text, Any]
     ):  # type: (...) -> List[Dict[Text, Any]]
+        # now = datetime.now()
+        # current_time = now.strftime("%H:%M:%S")
+        # print("Current Time =", current_time)
+        # start_time = {"starttime": current_time}
+        # sio.emit('message', start_time)
         select_menu = {"type": "message", "attachments": [
             {
                 "contentType": "application/vnd.microsoft.card.hero",
@@ -136,6 +172,12 @@ class subscribeunix(Action):
             }
         ]}
         dispatcher.utter_custom_json(select_menu)
+        time.sleep(2)
+        # now = datetime.now()
+        # current_time = now.strftime("%H:%M:%S")
+        # end_time = {"endtime": current_time}
+        # sio.emit('message', end_time)
+        payload = {}
         # vid = {
         #     "type": "message", "attachments":
         #         [
@@ -237,3 +279,7 @@ class fileuploadhandler(Action):
         print("file removed")
 
 
+# now = datetime.now()
+# current_time = now.strftime("%H:%M:%S")
+# end_time = {"endtime":current_time}
+# sio.emit('message', end_time)

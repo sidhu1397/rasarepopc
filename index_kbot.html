@@ -4,33 +4,33 @@
 <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
-       
- 
-        
+
+
+
      function dispgraph () {
-      
+
 	const socket = io("http://localhost:8080");
 	var msg = "normal";
 
-	
-        
+
+
        function currenttime(){
        var d = new Date().toLocaleTimeString();
        return d;
         }
-     
 
-       var dps = [{x: new Date(), y: 10}, {x: new Date(), y: 13}, {x: new Date(), y: 18}, {x: new Date(), y: 20}, {x: new Date(), y: 17},{x: new Date(), y: 10}, {x: new Date(), y: 13}, {x: new Date(), y: 18}, {x: new Date(), y: 20}, {x: new Date(), y: 17}];   //dataPoints.
+
+       var dps = [{x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30},{x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30}, {x: new Date(), y: 30}];   //dataPoints.
       var chart = new CanvasJS.Chart("chartContainer",{
       	title :{
-      		text: "Live Data KBOT"
+      		text: "Live Data"
       	},
       	axisX: {
             valueFormatString: "HH:mm:ss" ,
       		title: "Time"
       	},
-      	axisY: {						
-      		title: "CPU Usage"
+      	axisY: {
+      		title: "Bot Status"
       	},
       	data: [{
       		type: "line",
@@ -40,29 +40,32 @@
 
       chart.render();
 <!--      xVal = new Date();-->
-      var yVal = 15;	
-      var updateInterval = 5000;
-      
+      var yVal = 30;
+      var updateInterval = 2000;
+
 	socket.on("message", function(data) {
   	console.log(data);
         function updatechart () {
-      	
-      	
+
+
         xVal = new Date();
         console.log("xaxis = "+xVal+"yaxis = "+data);
-      	dps.push({x: xVal,y: data});
+        if(data == 60)
+      	{dps.push({x: xVal,y: data,indexLabel: "KBot in use"});}
+      	else
+      	{dps.push({x: xVal,y: data,indexLabel: "Idle"});}
 
-      	
+
       	if (dps.length >  10 )
       	{
-      		dps.shift();				
+      		dps.shift();
       	}
 
-    
 
-      	chart.render();		
 
-	// update chart after specified time. 
+      	chart.render();
+
+	// update chart after specified time.
 
 }
 
