@@ -77,7 +77,8 @@ class enterprojhandler(Action):
 
         dispatcher.utter_message("Enterproj services are")
         # dispatcher.utter_image_url("https://rasabot.s3.us-east-2.amazonaws.com/AddTeamMember2.jpg")
-        dispatcher.utter_image_url("https://raw.githubusercontent.com/muthu-chatbotautomation/Rasa-chat-bot/master/AddTeamMember2.jpg?token=ANQB43AC4VJXLK2C4XQTK3256H4ME")
+        # dispatcher.utter_image_url("https://raw.githubusercontent.com/muthu-chatbotautomation/Rasa-chat-bot/master/AddTeamMember2.jpg?token=ANQB43AC4VJXLK2C4XQTK3256H4ME")
+        dispatcher.utter_image_url("https://localhost:5000/")
         conn = pyodbc.connect(Driver='{ODBC Driver 17 for SQL Server}', Server='localhost\SQLEXPRESS',
                               Database='testing',
                               Trusted_Connection='yes')
@@ -91,6 +92,8 @@ class enterprojhandler(Action):
 
 
         time.sleep(2)
+
+
         # now = datetime.now()
         # current_time = now.strftime("%H:%M:%S")
         # end_time = {"endtime":current_time}
@@ -207,11 +210,34 @@ class subscribeunix(Action):
         #     dict =tracker.current_state()
         #     print(dict)
         #     vid_button ={
-        #     "type": "message", "attachments":
-        #         [
         #             {
-        #     'contentType': 'application/vnd.microsoft.card.adaptive',
-        #     "content":   {
+        #             "type": "AdaptiveCard",
+        #             "body": [
+        #                 {
+        #                     "type": "Input.ChoiceSet",
+        #                     "placeholder": "Select a database application",
+        #                     "choices": [
+        #                         {
+        #                             "title": "Application1",
+        #                             "value": "Application1"
+        #                         },
+        #                         {
+        #                             "title": "Application2",
+        #                             "value": "Application2"
+        #                         }
+        #                     ],
+        #                     "id": "Applicationid"
+        #                 }
+        #             ],
+        #             "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        #             "version": "1.0",
+        #             "actions": [
+        #                 {
+        #                     "type": "Action.Submit",
+        #                     "title": "submit"
+        #                 }
+        #             ]
+        #         }   {
         #                       "type": "AdaptiveCard",
         #                       "version": "1.0",
         #                       "body": [
