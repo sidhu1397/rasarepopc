@@ -1,0 +1,13 @@
+{'text': 'sending message to flask', 
+'textFormat': 'plain', 
+'type': 'message', 
+'timestamp': '2020-01-13T10:11:02.2572609Z', 
+'localTimestamp': '2020-01-13T15:41:02.2572609+05:30', 
+'id': '1578910262167', 
+'channelId': 'msteams', 
+'serviceUrl': 'https://smba.trafficmanager.net/in/', 
+'from': {'id': '29:1S9XcLjLvWmsTJkMiVM8DlvNsXC1M5axJelyn7KoqhDr_kGNJq7WH6TnGI40AAkdx69Sdq1-TymzMPZjZF0K5eQ', 'name': 'sidhu1397', 'aadObjectId': '7f362566-21b0-44f8-8c51-ee11bb23d3d5'}, 
+'conversation': {'conversationType': 'personal', 'tenantId': 'e0086ea6-2aa3-4edd-923c-fefbd6471bdd', 'id': 'a:1ul8ajOLmpnYS5koVTHikpqFPlDQ1PcD8qr6_DgrV5ZB312T6oubu_AWyqg2dR-Y8QOatR-6L7BwYK0n6KG_QGqMbNqB-xCPJ_figGeRQVPz2-ye-_8nUCjV0yexqVrDt'}, 
+'recipient': {'id': '28:c8a478c5-ea2a-4d0f-8a51-64338a369f9e', 'name': 'watson_kbot'}, 'entities': [{'locale': 'en-US', 'country': 'US', 'platform': 'Windows', 'type': 'clientInfo'}], 
+'channelData': {'tenant': {'id': 'e0086ea6-2aa3-4edd-923c-fefbd6471bdd'}}, 
+'locale': 'en-US'}

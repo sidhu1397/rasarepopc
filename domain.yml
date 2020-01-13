@@ -13,6 +13,7 @@ intents:
   - no
   - Filehandler
   - uploadfile
+  - activate_a_project
 
 
 actions:
@@ -29,6 +30,7 @@ actions:
 - action_no
 - action_Filehandler
 - utter_uploadfile
+- activate_a_project
 
 
 templates:
