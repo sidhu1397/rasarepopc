@@ -41,6 +41,8 @@ def handlerequest():
             send_state = preapre_text(res, head, msg_type['text'])
         elif str(msg_type['response_type'] == 'image'):
             prepare_image(res, head, msg_type['source'])
+        else:
+            prepare_text(res,head,"Unknown message type {0}".format(msg_type['response_type']))    
 
     # prepare text message
 
